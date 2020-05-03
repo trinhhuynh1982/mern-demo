@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 8080; // Step 1
 
 
 // Step 2
-mongoose.connect( process.env.MONGODB_URI || 'mongodb://localhost/my_database', {
+mongoose.connect( process.env.MONGODB_URI || 'mongodb+srv://maxime:passw@rd123@freecluster-kdnoc.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true
 });
 
