@@ -28,15 +28,15 @@ const PORT = process.env.PORT || 8080; // Step 1
     .then(() => console.log('connection successful'))
     .catch((err) => console.log(err)) */
 
-    mongoose.connect('mongodb://reactcosmosdb.documents.azure.com:10255/reactcosmosdb?ssl=true', {
-        auth: {
-            user: 'reactcosmosdb',
-            password: 'fwVtIOxk1vPMq5uGuSQ24ElB7uitCRuAjuM87CsfmoROXVTJyJqTdM1tGAeWeAFDRB0x9RDCOpWH5Rxsk5ZNaQ=='
-        },
-        useNewUrlParser: true
-    })
-        .then(() => console.log('connection successful'))
-        .catch((err) => console.log(err));
+mongoose.connect('mongodb://reactcosmosdb.documents.azure.com:10255/reactcosmosdb?ssl=true', {
+    auth: {
+        user: 'reactcosmosdb',
+        password: 'fwVtIOxk1vPMq5uGuSQ24ElB7uitCRuAjuM87CsfmoROXVTJyJqTdM1tGAeWeAFDRB0x9RDCOpWH5Rxsk5ZNaQ=='
+    },
+    useNewUrlParser: true
+})
+    .then(() => console.log('connection successful'))
+    .catch((err) => console.log(err));
 
 // Configuration
 app.use(bodyParser.json());
@@ -44,13 +44,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', routes);
 
 // Step 3
-if (process.env.NODE_ENV === 'production') {
+/* if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 
     app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
     });
-}
+} */
+
+app.use(express.static('client/build'));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
+});
 
 app.listen(PORT, () => {
     log(`Server is starting at PORT: ${PORT}`);
