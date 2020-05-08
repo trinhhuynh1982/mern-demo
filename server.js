@@ -31,7 +31,7 @@ const PORT = process.env.PORT || 8080; // Step 1
     mongoose.connect('mongodb://reactcosmosdb.documents.azure.com:10255/reactcosmosdb?ssl=true', {
         auth: {
             user: 'reactcosmosdb',
-            password: 'ctNkvv2RkReK5m2niB2EybslyvXp5nbFYwb1bquaVrnF0Qtyn9Mw4GOTcUGsdim6XFh4gB9kJnOD7hN5BrG2kg=='
+            password: 'fwVtIOxk1vPMq5uGuSQ24ElB7uitCRuAjuM87CsfmoROXVTJyJqTdM1tGAeWeAFDRB0x9RDCOpWH5Rxsk5ZNaQ=='
         },
         useNewUrlParser: true
     })
